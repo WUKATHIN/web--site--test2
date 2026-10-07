@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff4d6" />
+    <meta name="description" content="接住松鼠丟下的蘋果，小心長滿刺的栗子！" />
+    <title>蘋果接接樂</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="蘋果接接樂首頁">
+          <span class="brand-mark" aria-hidden="true">🍎</span>
+          <span><strong>蘋果接接樂</strong><small>APPLE CATCH!</small></span>
+        </a>
+        <div class="top-actions">
+          <div class="best-score" aria-label="歷史最高分"><span>最高分</span><strong id="bestScore">0</strong></div>
+          <button id="soundButton" class="icon-button" type="button" aria-label="關閉音效" aria-pressed="true"><span aria-hidden="true">♫</span></button>
+        </div>
+      </header>
+
+      <section class="hero-copy" aria-labelledby="gameTitle">
+        <p class="eyebrow"><span></span>森林裡的豐收日</p>
+        <h1 id="gameTitle">接住蘋果，<em>小心栗子！</em></h1>
+        <p>控制揹著籃子的小朋友左右移動。接到蘋果得 1 分，漏接蘋果或碰到刺栗子會失去一顆心。</p>
+      </section>
+
+      <section class="game-card" aria-label="蘋果接接樂遊戲區">
+        <div class="hud" aria-live="polite">
+          <div class="hud-item"><span>分數</span><strong id="score">0</strong></div>
+          <div class="hud-item hud-message"><span>目標</span><strong id="statusText">接住蘋果！</strong></div>
+          <div class="hud-item hud-lives"><span>剩餘愛心</span><strong id="lives" aria-label="三顆愛心">♥ ♥ ♥</strong></div>
+        </div>
+
+        <div class="canvas-wrap" id="gameArea">
+          <canvas id="gameCanvas" width="960" height="600" aria-label="松鼠從樹上丟蘋果的遊戲畫面"></canvas>
+          <div class="game-overlay is-visible" id="startOverlay">
+            <div class="mascot-mark" aria-hidden="true">🐿️</div>
+            <p class="overlay-kicker">準備好了嗎？</p>
+            <h2>松鼠要丟蘋果囉！</h2>
+            <button id="startButton" class="primary-button" type="button"><span>開始遊戲</span><span aria-hidden="true">→</span></button>
+            <p class="control-hint"><kbd>←</kbd><kbd>→</kbd> 或拖曳畫面左右移動</p>
+          </div>
+          <div class="game-overlay result-overlay" id="resultOverlay" aria-hidden="true">
+            <p class="overlay-kicker">遊戲結束・本次分數</p>
+            <div class="final-score" id="finalScore">0</div>
+            <h2 id="resultTitle">籃子裝得滿滿的！</h2>
+            <p id="resultText">休息一下，再來挑戰最高分吧。</p>
+            <button id="restartButton" class="primary-button" type="button"><span>再玩一次</span><span aria-hidden="true">↻</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="legend" aria-label="玩法說明">
+        <article><span class="legend-icon apple-icon" aria-hidden="true">🍎</span><div><strong>接到蘋果</strong><small>分數 +1</small></div></article>
+        <article><span class="legend-icon missed-icon" aria-hidden="true">💨</span><div><strong>漏掉蘋果</strong><small>愛心 -1</small></div></article>
+        <article><span class="legend-icon chestnut-icon" aria-hidden="true">🌰</span><div><strong>接到刺栗子</strong><small>愛心 -1</small></div></article>
+      </section>
+
+      <footer><span>今天也要滿載而歸！</span><span aria-hidden="true">🍃</span></footer>
+    </main>
+    <script src="./game.js"></script>
+  </body>
+</html>
